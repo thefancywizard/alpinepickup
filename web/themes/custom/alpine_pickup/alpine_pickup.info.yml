@@ -1,0 +1,15 @@
+name: Alpine Pickup
+type: theme
+base theme: false
+description: 'Custom theme for Alpinepickup.com'
+package: Alpine Pickup
+logo: 'images/logo.png'
+core_version_requirement: ^8 || ^9
+libraries:
+  - alpine_pickup/global-styling
+regions:
+  branding: Branding
+  navigation: Main navigation
+  featured: Featured
+  content: Content
+  footer: Footer

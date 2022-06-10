@@ -1,0 +1,5 @@
+tab_toolbar:
+  version: VERSION
+  css:
+    theme:
+      css/tab_toolbar.theme.css: {}

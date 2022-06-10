@@ -1,0 +1,75 @@
+<?php
+
+/**
+ * @file
+ * Contains tab_toolbar.module.
+ */
+
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_theme().
+ */
+function tab_toolbar_theme($existing, $type, $theme, $path) {
+  $items['tab_toolbar'] = [
+    'variables' => ['primary' => [], 'secondary' => []],
+  ];
+
+  return $items;
+}
+
+/**
+ * Implements hook_toolbar().
+ */
+function tab_toolbar_toolbar() {
+
+  // Do not show tabs when on the admin theme.
+  // TODO: Make this a configurable setting (and turned off by default).
+  $active_theme = \Drupal::theme()->getActiveTheme()->getName();
+  $admin_theme = \Drupal::config('system.theme')->get('admin');
+  if ($active_theme == $admin_theme) {
+    return;
+  }
+
+  $manager = \Drupal::service('plugin.manager.menu.local_task');
+  $tasks = $manager->getLocalTasks(\Drupal::routeMatch()->getRouteName());
+  $items = [];
+
+  if (!empty($tasks['tabs'])) {
+    $items['primary_tasks'] = [
+      '#type' => 'toolbar_item',
+      'tab' => [
+        '#type' => 'link',
+        '#title' => t('Page Actions'),
+        '#url' => Url::fromRoute('<front>'),
+        '#attributes' => [
+          'title' => t('Home page'),
+          'class' => ['toolbar-icon', 'toolbar-icon-edit'],
+        ],
+      ],
+      'tray' => [
+        '#heading' => t('Page actions'),
+        'toolbar_actions' => [
+          '#type' => 'container',
+          '#attributes' => [
+            'class' => ['toolbar-menu-administration'],
+          ],
+          '#theme' => 'tab_toolbar',
+          '#primary' => $tasks['tabs'],
+        ],
+      ],
+      '#cache' => [
+        'contexts' => ['user.permissions', 'url.path'],
+      ],
+    ];
+
+    // Include icon styling if the core 'Contextual Links' module is disabled.
+    if (!\Drupal::moduleHandler()->moduleExists('contextual')) {
+      $items['primary_tasks']['#attached']['library'] = [
+        'tab_toolbar/tab_toolbar',
+      ];
+    }
+  }
+
+  return $items;
+}

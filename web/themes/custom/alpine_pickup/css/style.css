@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --dark-green: '#2d3b1e';
+    --light-green: '#7d845f';
+    --cream: '#ecdfc7';
+    --sienna: '#ca7339';
+}
+
+.branding > div,
+.branding > nav {
+    display: flex;
+    max-height: 10rem;
+}
+
+#block-alpine-pickup-branding > a > img {
+    max-height: 10rem;
+}
+
+.main-nav ul {
+    display: flex;
+}
+
+.main-nav ul li,
+.main-nav a.ap-signup {
+    margin-left: 1rem;
+}
