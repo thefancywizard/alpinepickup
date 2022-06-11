@@ -17,14 +17,17 @@
     "require": {
         "composer/installers": "^1.9",
         "drupal/admin_toolbar": "^3.1",
+        "drupal/coder": "^8.3",
         "drupal/core-composer-scaffold": "^9.3",
         "drupal/core-project-message": "^9.3",
         "drupal/core-recommended": "^9.3",
+        "drupal/devel": "^4.1",
         "drupal/fontawesome": "^2.23",
         "drupal/fontyourface": "^3.6",
         "drupal/layout_builder_browser": "^1.4",
         "drupal/layout_builder_iframe_modal": "^1.2",
         "drupal/layout_builder_operation_link": "^2.0",
+        "drupal/media_library_block": "^1.0",
         "drupal/pathauto": "^1.10",
         "drupal/tab_toolbar": "^1.0@beta",
         "drush/drush": "^11.0"
@@ -39,7 +42,8 @@
         "allow-plugins": {
             "composer/installers": true,
             "drupal/core-composer-scaffold": true,
-            "drupal/core-project-message": true
+            "drupal/core-project-message": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
     "extra": {
