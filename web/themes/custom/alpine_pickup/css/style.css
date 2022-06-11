@@ -27,3 +27,15 @@
 .main-nav a.ap-signup {
     margin-left: 1rem;
 }
+
+#block-alpine-pickup-local-tasks > ul {
+    display: flex;
+}
+
+#block-alpine-pickup-local-tasks > ul > li {
+    margin-right: 1rem;
+}
+
+#block-alpine-pickup-page-title {
+    display: none;
+}
