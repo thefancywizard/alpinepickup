@@ -50,24 +50,21 @@ class HeroBlock extends BlockBase implements ContainerFactoryPluginInterface {
    */
   public function build() {
 
-    $config = $this->getConfiguration(); dpm($config);
+    $config = $this->configuration;
 
-    $title = (!empty($config['hero_block_title'])) ? $config['hero_block_title'] : '';
-    $subtitle = (!empty($config['hero_block_subtitle'])) ? $config['hero_block_subtitle'] : '';
+    $build = [];
+
+    $build['hero_block_title'] = (!empty($config['hero_block_title'])) ? $config['hero_block_title'] : '';
+    $build['hero_block_subtitle'] = (!empty($config['hero_block_subtitle'])) ? $config['hero_block_subtitle'] : '';
+    $build['hero_button'] = (!empty($config['hero_button'])) ? $config['hero_button'] : '';
 
     if (isset($config['background_image'])) {
       $bg_image = $this->mediaStorage->load($config['background_image']);
-      dpm('ponce');
-      dpm($bg_image);
       $bg_image_render = $this->mediaViewBuilder->view($bg_image, 'default');
+      $build['background_image'] = $bg_image_render;
     }
 
-    return [
-      '#theme' => 'hero_block',
-      '#hero_block_title' => $title,
-      '#hero_block_subtitle' => $subtitle,
-      '#background_image' => $bg_image_render,
-    ];
+    return $build;
   }
 
   /**
@@ -98,21 +95,12 @@ class HeroBlock extends BlockBase implements ContainerFactoryPluginInterface {
       '#description' => $this->t('Upload or select your background image.'),
     ];
 
-    // $form['hero_block_image'] = [
-    //   '#type' => 'managed_file',
-    //   '#upload_location' => 'public://',
-    //   '#title' => $this->t('Hero image'),
-    //   '#theme' => 'image_widget',
-    //   '#default_value' => $this->configuration['hero_block_image'],
-    //   '#upload_validators' => [
-    //     'file_validate_extensions' => ['gif png jpg jpeg'],
-    //   ],
-    //   '#states' => [
-    //     'visible' => [
-    //       ':input[name="image_type"]' => ['value' => t('Upload New Image(s)')],
-    //     ]
-    //   ]
-    // ];
+    $form['hero_button'] = [
+      '#type' => 'multibutton',
+      '#title' => $this->t('Hero button(s)'),
+      '#default_value' => $config['hero_button'],
+      '#description' => $this->t('Add buttons to the hero block.'),
+    ];
 
     return $form;
   }
@@ -124,20 +112,8 @@ class HeroBlock extends BlockBase implements ContainerFactoryPluginInterface {
     parent::blockSubmit($form, $form_state);
     $values = $form_state->getValues();
 
-    /* Fetch the array of the file stored temporarily in database */
-   // $image = $form_state->getValue('image');
-
-   // $this->configuration['hero_block_image'] = $image;
-
-    /* Load the object of the file by it's fid */
-   // $file = \Drupal\file\Entity\File::load($image[0]);
-
-    /* Set the status flag permanent of the file object */
-   // $file->setPermanent();
-
-    /* Save the file in database */
-   // $file->save();
     $this->configuration['background_image'] = $values['background_image'];
+    $this->configuration['hero_button'] = $values['hero_button'];
     $this->configuration['hero_block_title'] = $values['hero_block_title'];
     $this->configuration['hero_block_subtitle'] = $values['hero_block_subtitle'];
   }

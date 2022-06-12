@@ -1,0 +1,10 @@
+name: Alpine Pickup field
+type: module
+description: Custom fields for Alpine Pickup website.
+package: Alpine Pickup
+version: 1.0
+core: 8.x
+core_version_requirement: ^8 || ^9
+
+dependencies:
+  - field

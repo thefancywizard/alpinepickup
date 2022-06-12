@@ -27,6 +27,13 @@ module.exports = {
     colors: colors,
     screens: screens,
     extend: {},
+    fontSize: {
+      sm: ['14px', '20px'],
+      base: ['16px', '24px'],
+      lg: ['20px', '28px'],
+      xl: ['24px', '32px'],
+      h1: ['70px', '91px'],
+    },
   },
   plugins: [],
 }
