@@ -49,11 +49,6 @@ class ComposerStaticInit24a8b4c760deb3fa8e528ebf4eefa489
         array (
             'cweagans\\Composer\\' => 18,
         ),
-        'W' => 
-        array (
-            'Webmozart\\PathUtil\\' => 19,
-            'Webmozart\\Assert\\' => 17,
-        ),
         'V' => 
         array (
             'VariableAnalysis\\' => 17,
@@ -194,14 +189,6 @@ class ComposerStaticInit24a8b4c760deb3fa8e528ebf4eefa489
         'cweagans\\Composer\\' => 
         array (
             0 => __DIR__ . '/..' . '/cweagans/composer-patches/src',
-        ),
-        'Webmozart\\PathUtil\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/webmozart/path-util/src',
-        ),
-        'Webmozart\\Assert\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
         'VariableAnalysis\\' => 
         array (
