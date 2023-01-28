@@ -290,7 +290,7 @@ $databases = [];
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+$settings['hash_salt'] = 'lKTyptZwU8BgLc4eT6UuC0Jwv8MhLMCl2DNeN8XeT8i5KVY5S7ATsAlZwcQnVxIuM4ck-88U9w';
 
 /**
  * Deployment identifier.
@@ -313,12 +313,12 @@ $settings['hash_salt'] = '';
  * After finishing the upgrade, be sure to open this file again and change the
  * TRUE back to a FALSE!
  */
-$settings['update_free_access'] = FALSE;
+$settings['update_free_access'] = TRUE;
 
 /**
  * External access proxy settings:
  *
- * If your site must access the Internet via a web proxy then you can enter the
+ * If your site must access the Internet via a web proxya then you can enter the
  * proxy settings here. Set the full URL of the proxy, including the port, in
  * variables:
  * - $settings['http_client_config']['proxy']['http']: The proxy URL for HTTP
@@ -708,6 +708,10 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * will allow the site to run off of all variants of example.com and
  * example.org, with all subdomains included.
  */
+ $settings['trusted_host_patterns'] = [
+    '^www\.alpinepickup\.com$',
+    '^alpinepickup\.com$',
+  ];
 
 /**
  * The default list of directories that will be ignored by Drupal's file API.
@@ -778,3 +782,15 @@ if (file_exists(__DIR__ . '/settings.ddev.php') && getenv('IS_DDEV_PROJECT') == 
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+$databases['default']['default'] = array (
+  'database' => 'deepsea1_alpinepickup',
+  'username' => 'deepsea1_ap',
+  'password' => 'deepsea1_ap',
+  'prefix' => '',
+  'host' => 'localhost',
+  'port' => '3306',
+  'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
+  'driver' => 'mysql',
+  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
+);
+$settings['config_sync_directory'] = 'sites/default/files/config_BGYZcEIOx7-PbjrBQJ3xzBRTya3mbuH-YIQrnnHu2mao_yO3gIe3S_MdabGbHENBWX4G-26_Tw/sync';
