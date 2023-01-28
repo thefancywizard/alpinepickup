@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace Drupal\media_library_block\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Entity\EntityDisplayRepositoryInterface;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\media\MediaInterface;
-use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\media\MediaInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -150,14 +151,21 @@ class MediaLibraryBlock extends BlockBase implements ContainerFactoryPluginInter
    */
   public function build() {
     $media = $this->loadMedia();
+    $build = [];
 
-    if (!$media) {
-      return [];
+    if ($media) {
+      $access = $media->access('view', NULL, TRUE);
+      if ($access->isAllowed()) {
+        $view_builder = $this->entityTypeManager->getViewBuilder('media');
+        $view_mode = $this->getViewmode();
+        $build = $view_builder->view($media, $view_mode);
+      }
+      CacheableMetadata::createFromObject($media)
+        ->merge(CacheableMetadata::createFromRenderArray($build))
+        ->merge(CacheableMetadata::createFromObject($access))
+        ->applyTo($build);
     }
-
-    $view_builder = $this->entityTypeManager->getViewBuilder('media');
-    $view_mode = $this->getViewmode();
-    return $view_builder->view($media, $view_mode);
+    return $build;
   }
 
   /**

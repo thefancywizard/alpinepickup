@@ -1,0 +1,7 @@
+<?php
+
+function ap_theme_page_attachments(array &$page) {
+    if (\Drupal::service('router.admin_context')->isAdminRoute()) {
+        $page['#attached']['library'][] = 'ap_theme/theme-overrides';
+    }
+  }

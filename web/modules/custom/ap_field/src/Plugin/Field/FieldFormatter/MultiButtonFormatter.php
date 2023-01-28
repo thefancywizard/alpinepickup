@@ -33,7 +33,6 @@ class MultiButtonFormatter extends FormatterBase {
         $elements[$delta]['button_link'] = $item_values['button_link'];
         $elements[$delta]['button_style'] = $item_values['button_style'];
     }
-    dpm($elements);
 
     return $elements;
   }

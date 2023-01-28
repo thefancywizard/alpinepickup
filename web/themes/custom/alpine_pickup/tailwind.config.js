@@ -34,6 +34,9 @@ module.exports = {
       xl: ['24px', '32px'],
       h1: ['70px', '91px'],
     },
+    fontFamily: {
+      'poppins': ['Poppins', 'ui-sans-serif', 'system-ui'],
+    }
   },
   plugins: [],
 }

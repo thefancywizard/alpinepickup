@@ -1,0 +1,4 @@
+theme-overrides:
+  css:
+    theme:
+      css/overrides.css: {}

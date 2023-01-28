@@ -88,7 +88,7 @@ function layout_builder_iframe_modal_link_alter(&$variables) {
   $route_name = \Drupal::routeMatch()->getRouteName();
 
   // Only change links on layout builder routes.
-  if (strpos($route_name, 'layout_builder') === FALSE) {
+  if ($route_name === NULL || strpos($route_name, 'layout_builder') === FALSE) {
     return;
   }
 

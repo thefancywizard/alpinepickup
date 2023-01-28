@@ -33,12 +33,13 @@ class IframeRenderer extends DialogRenderer {
 
     // Set the destination query parameter to our custom redirect route.
     $iframe_src->setOption('query', [
-      'destination' => '/layout_builder_iframe_modal/redirect',
+      'destination' => Url::fromRoute('layout_builder_iframe_modal.redirect')->toString(TRUE)->getGeneratedUrl(),
     ]);
 
     $iframe_attributes = new Attribute([
       'src' => $iframe_src->toString(),
       'class' => ['lbim-dialog-iframe'],
+      'name' => 'lbim-dialog-iframe',
     ]);
 
     $render_array = [
@@ -62,7 +63,7 @@ class IframeRenderer extends DialogRenderer {
       $title = $this->renderer->renderPlain($title);
     }
 
-    $options = $request->request->get('dialogOptions', []);
+    $options = $request->request->all('dialogOptions');
     $response->addCommand(new OpenIframeCommand($title, $content, $options));
 
     return $response;

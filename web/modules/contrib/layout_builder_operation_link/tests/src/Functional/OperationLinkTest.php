@@ -28,6 +28,7 @@ class OperationLinkTest extends BrowserTestBase {
    * {@inheritdoc}
    */
   protected static $modules = [
+    'field_ui',
     'layout_builder_operation_link',
     'node',
     'taxonomy',
