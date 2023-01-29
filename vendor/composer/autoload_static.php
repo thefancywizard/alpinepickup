@@ -180,6 +180,10 @@ class ComposerStaticInit24a8b4c760deb3fa8e528ebf4eefa489
             'CommerceGuys\\Intl\\' => 18,
             'CommerceGuys\\Addressing\\' => 24,
         ),
+        'B' => 
+        array (
+            'Braintree\\' => 10,
+        ),
         'A' => 
         array (
             'Asm89\\Stack\\' => 12,
@@ -575,6 +579,10 @@ class ComposerStaticInit24a8b4c760deb3fa8e528ebf4eefa489
         array (
             0 => __DIR__ . '/..' . '/commerceguys/addressing/src',
         ),
+        'Braintree\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/braintree/braintree_php/lib/Braintree',
+        ),
         'Asm89\\Stack\\' => 
         array (
             0 => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack',
@@ -601,6 +609,13 @@ class ComposerStaticInit24a8b4c760deb3fa8e528ebf4eefa489
             'Console' => 
             array (
                 0 => __DIR__ . '/..' . '/pear/console_getopt',
+            ),
+        ),
+        'B' => 
+        array (
+            'Braintree' => 
+            array (
+                0 => __DIR__ . '/..' . '/braintree/braintree_php/lib',
             ),
         ),
         'A' => 
