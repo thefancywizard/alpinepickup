@@ -145,6 +145,7 @@ class ComposerStaticInit24a8b4c760deb3fa8e528ebf4eefa489
         'D' => 
         array (
             'Drush\\' => 6,
+            'Drupal\\gin_lb\\' => 14,
             'Drupal\\Driver\\' => 14,
             'Drupal\\Core\\' => 12,
             'Drupal\\Composer\\Plugin\\Scaffold\\' => 32,
@@ -446,6 +447,10 @@ class ComposerStaticInit24a8b4c760deb3fa8e528ebf4eefa489
         'Drush\\' => 
         array (
             0 => __DIR__ . '/..' . '/drush/drush/src',
+        ),
+        'Drupal\\gin_lb\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/web/modules/contrib/gin_lb/src',
         ),
         'Drupal\\Driver\\' => 
         array (
