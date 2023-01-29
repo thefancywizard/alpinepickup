@@ -67,7 +67,7 @@ class CustomCheckoutPane extends CheckoutPaneBase implements CheckoutPaneInterfa
    * {@inheritdoc}
    */
   public function submitPaneForm(array &$pane_form, FormStateInterface $form_state, array &$complete_form) {
-    
+    $values = $form_state->getValue($pane_form['#parents']);
   }
 
 }

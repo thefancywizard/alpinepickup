@@ -708,10 +708,7 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * will allow the site to run off of all variants of example.com and
  * example.org, with all subdomains included.
  */
- $settings['trusted_host_patterns'] = [
-    '^www\.alpinepickup\.com$',
-    '^alpinepickup\.com$',
-  ];
+ $settings['trusted_host_patterns'] = [ '.*' ];
 
 /**
  * The default list of directories that will be ignored by Drupal's file API.
@@ -760,6 +757,19 @@ $settings['entity_update_backup'] = TRUE;
  */
 $settings['migrate_node_migrate_type_classic'] = FALSE;
 
+$databases['default']['default'] = array (
+  'database' => 'deepsea1_alpinepickup',
+  'username' => 'deepsea1_ap',
+  'password' => 'deepsea1_ap',
+  'prefix' => '',
+  'host' => 'localhost',
+  'port' => '3306',
+  'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
+  'driver' => 'mysql',
+  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
+);
+$settings['config_sync_directory'] = 'sites/default/files/config_BGYZcEIOx7-PbjrBQJ3xzBRTya3mbuH-YIQrnnHu2mao_yO3gIe3S_MdabGbHENBWX4G-26_Tw/sync';
+
 // Automatically generated include for settings managed by ddev.
 if (file_exists(__DIR__ . '/settings.ddev.php') && getenv('IS_DDEV_PROJECT') == 'true') {
   include __DIR__ . '/settings.ddev.php';
@@ -782,15 +792,8 @@ if (file_exists(__DIR__ . '/settings.ddev.php') && getenv('IS_DDEV_PROJECT') == 
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
-$databases['default']['default'] = array (
-  'database' => 'deepsea1_alpinepickup',
-  'username' => 'deepsea1_ap',
-  'password' => 'deepsea1_ap',
-  'prefix' => '',
-  'host' => 'localhost',
-  'port' => '3306',
-  'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
-  'driver' => 'mysql',
-  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
-);
-$settings['config_sync_directory'] = 'sites/default/files/config_BGYZcEIOx7-PbjrBQJ3xzBRTya3mbuH-YIQrnnHu2mao_yO3gIe3S_MdabGbHENBWX4G-26_Tw/sync';
+
+if (isset($GLOBALS['request']) and
+'/alpinepickup/web/index.php' === $GLOBALS['request']->server->get('SCRIPT_NAME')) {
+$GLOBALS['request']->server->set('SCRIPT_NAME', '/index.php');
+}
