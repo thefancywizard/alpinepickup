@@ -29,6 +29,7 @@
         "drupal/core-project-message": "^9.3",
         "drupal/core-recommended": "^9.3",
         "drupal/devel": "^4.1",
+        "drupal/dxpr_theme": "^5.0",
         "drupal/fontawesome": "^2.23",
         "drupal/fontyourface": "^3.6",
         "drupal/inline_entity_form": "^1.0-rc6",
