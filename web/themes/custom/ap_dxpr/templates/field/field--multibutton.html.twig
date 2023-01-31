@@ -1,0 +1,10 @@
+<div class="flex flex-row justify-center space-x-3 mt-16">
+    {% for item in items %}
+        {% if item.content.button_style == "dark" %}
+        {{ link(item.content.button_text, item.content.button_link, { 'class': ['bg-green-dark text-cream py-4 px-8 rounded-md uppercase font-poppins font-bold'] }) }}
+        {% endif %}
+        {% if item.content.button_style == "light" %}
+        {{ link(item.content.button_text, item.content.button_link, { 'class': ['bg-cream text-green-dark py-4 px-8 rounded-md uppercase font-poppins font-bold'] }) }}
+        {% endif %}
+    {% endfor %}
+</div>

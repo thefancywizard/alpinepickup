@@ -1,0 +1,19 @@
+<div class="max-w-full">
+    <header aria-label="Site header" class="header max-w-screen-xl mx-auto px-16" id="header" role="banner">
+      <div class="branding font-bold grid max-h-40 grid-cols-2">
+        {{ page.branding }}
+      </div>
+      {{ page.navigation }}
+    </header>
+    <section class="featured bg-green-light text-cream " id="featured" role="complementary">
+      {{ page.featured }}
+    </section>
+    <section class="main" id="main">
+      <main aria-label="Site main content" class="content" id="content" role="main">
+        {{ page.content }}
+      </main>
+    </section>
+    <footer aria-label="Site footer" class="footer bg-green-light text-green-dark flex font-bold justify-center" id="footer" role="contentinfo">
+        {{ page.footer }}
+    </footer>
+</div>
