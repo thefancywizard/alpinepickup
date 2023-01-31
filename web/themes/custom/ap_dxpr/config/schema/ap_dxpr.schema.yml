@@ -1,0 +1,5 @@
+# Schema for the theme setting configuration file of the Alpine Pickup DXPR theme.
+
+ap_dxpr.settings:
+  type: theme_settings
+  label: 'Alpine Pickup DXPR settings'
