@@ -24,6 +24,7 @@
         "drupal/coder": "^8.3",
         "drupal/commerce": "^2.30",
         "drupal/commerce_braintree": "^1.4",
+        "drupal/commerce_cart_redirection": "^3.2",
         "drupal/commerce_paypal": "^1.0@RC",
         "drupal/commerce_recurring": "1.x-dev@dev",
         "drupal/commerce_stripe": "1.x-dev@dev",
