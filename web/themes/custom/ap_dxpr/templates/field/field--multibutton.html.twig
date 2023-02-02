@@ -1,4 +1,4 @@
-<div class="d-flex flex-row justify-content-center space-x-3 mt-16 gap-5">
+<div class="d-flex flex-row justify-content-center space-x-3 mt-16 gap-2 p-003">
     {% for item in items %}
         {% if item.content.button_style == "dark" %}
         {{ link(item.content.button_text, item.content.button_link, { 'class': ['bg-green-dark text-cream py-4 px-8 rounded-md uppercase font-bold'] }) }}
