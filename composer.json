@@ -49,6 +49,7 @@
         "drupal/paypal_subscriptions": "^1.1",
         "drupal/responsive_background_image": "^2.0@beta",
         "drupal/services": "^4.0@beta",
+        "drupal/smtp": "^1.2",
         "drupal/tab_toolbar": "^1.0@beta",
         "drush/drush": "^11.0"
     },
