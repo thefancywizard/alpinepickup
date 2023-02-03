@@ -1,0 +1,12 @@
+name: Commerce Agree to Terms
+type: module
+description: Commerce checkout pane with a checkbox linked to your custom Terms and Conditions page.
+core_version_requirement: ^8 || ^9
+package: Commerce (contrib)
+dependencies:
+  - commerce_checkout
+
+# Information added by Drupal.org packaging script on 2021-10-25
+version: '8.x-1.0'
+project: 'commerce_agree_terms'
+datestamp: 1635157467
