@@ -68,6 +68,7 @@ class MultiButtonWidget extends WidgetBase {
     $options = [
       'dark' => 'Dark background with light text',
       'light' => 'Light background with dark text',
+      'sage' => 'Sage background with light text',
     ];
     
     return $options;

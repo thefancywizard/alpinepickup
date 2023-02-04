@@ -1,5 +1,39 @@
-<div class="text-with-image d-flex flex-column">
+{%
+	set classes = [
+		'text-with-image',
+		'd-flex',
+		'flex-row',
+	]
+  %}
+{% if content.field_display_style[0]['#markup'] == "Image on right" %}
+{% set classes = classes|merge(["image-on-right"]) %}
+{% endif %}
+{% if content.field_display_style[0]['#markup'] == "Image on left" %}
+{% set classes = classes|merge(["image-on-left"]) %}
+{% endif %}
+{% if content.field_color_scheme[0]['#markup'] == "Sage background" %}
+{% set classes = classes|merge(["sage-bg"]) %}
+{% endif %}
+{% if content.field_color_scheme[0]['#markup'] == "White background" %}
+{% set classes = classes|merge(["white-bg"]) %}
+{% endif %}
+{% if content.field_color_scheme[0]['#markup'] == "Sand background" %}
+{% set classes = classes|merge(["sand-bg"]) %}
+{% endif %}
+<div {{ attributes.addClass(classes) }}>
     {{ title_prefix }}
     {{ title_suffix }}
-        {{ content }}
+    <div class="image-field">
+        {{ content.field_featured_image }}
+    </div>
+    <div class="text-info">
+    <h3>{{ label }}</h3>
+    <div class="body-text">
+        {{ content.body }}
+    </div>
+    <div class="button">
+        {{ content.field_cta_button }}
+    </div>
+    </div>
+    
 </div>
