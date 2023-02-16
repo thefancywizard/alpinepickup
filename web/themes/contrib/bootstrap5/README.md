@@ -10,7 +10,8 @@ or this theme's _variables_drupal.scss and recompile css!)
 
 ## FEATURES
 
-* Bootstrap 5 library ([5.2.3](https://blog.getbootstrap.com/2022/11/22/bootstrap-5-2-3/) and [5.1.3](https://blog.getbootstrap.com/2021/10/05/bootstrap-5-1-2/)) included
+* Bootstrap 5 library ([5.2.3](https://blog.getbootstrap.com/2022/11/22/bootstrap-5-2-3/)
+  and [5.1.3](https://blog.getbootstrap.com/2021/10/05/bootstrap-5-1-2/)) included
 * Bootstrap 5 breakpoints
 * Bootstrap 5 integration with CKEditor
 * Bootstrap 5 configuration within admin user interface
@@ -25,10 +26,10 @@ better content editor and developer experience. Features:
 
 * Bootstrap 5 style guide (view all Bootstrap 5 components on one page)
 
-
 ## REQUIREMENTS
 
 ### Installation: composer
+
 INSTALLATION
 
 `composer require drupal/bootstrap5`
@@ -53,7 +54,20 @@ Head to `Appearance` and clicking bootstrap5 `settings`.
 - To lint JS files run `npm run lint:js` (it will fail build if lint fails)
 - To compile SASS run `sass scss/style.scss css/style.css` (requires [SASS compiler](https://sass-lang.com/install))
 - To compile JS: run `npm run build:js`
-- optional: create symlink from bootstrap5 repo folder to a local Drupal installation to simplify development `ln -s /path/to/bootstrap5 /path/to/local-drupal-site/web/themes/contrib`
+- optional: create symlink from bootstrap5 repo folder to a local Drupal installation to simplify
+  development `ln -s /path/to/bootstrap5 /path/to/local-drupal-site/web/themes/contrib`
+
+## Branching
+
+* `3.0.x` Stable branch based on `Starterkit` and `Stable9` (Drupal 9.4+, Drupal 10+)
+* `2.0.x` Legacy branch based on `Claro` and `Stable` (Drupal 9 only)
+
+### Upgrade: 2.x to 3.x
+
+Run database updates via interface (OR run drush updb).
+It will uninstall old themes (if present) and enable `stable9`.
+
+If your installation is config driven, don't forget to switch `stable` and `claro` to `stable9`.
 
 ## FAQ
 
@@ -62,7 +76,8 @@ Head to `Appearance` and clicking bootstrap5 `settings`.
 Nesting is considered bad practice in Bootstrap 5. It is bad for UX, mobile
 usage and accessibility.
 
-Hence, there are no examples in the [current documentation](https://getbootstrap.com/docs/5.0/components/dropdowns/#menu-items).
+Hence, there are no examples in
+the [current documentation](https://getbootstrap.com/docs/5.0/components/dropdowns/#menu-items).
 
 Read more:
 

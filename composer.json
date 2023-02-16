@@ -20,7 +20,7 @@
         "drupal/admin_toolbar": "^3.1",
         "drupal/bat_api": "^1.1",
         "drupal/bee": "^1.2",
-        "drupal/bootstrap5": "^3.0@RC",
+        "drupal/bootstrap5": "^3.0",
         "drupal/coder": "^8.3",
         "drupal/commerce": "^2.30",
         "drupal/commerce_agree_terms": "^1.0",
