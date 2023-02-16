@@ -2,6 +2,11 @@ global-styling:
   css:
     theme:
       css/dxpr_theme_subtheme.css: {}
+  js:
+    js/global.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
 
 bootstrap-3:
   css:
